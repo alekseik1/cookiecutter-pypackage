@@ -1,9 +1,5 @@
 [project]
 site_name = "Cookiecutter PyPackage"
-site_url = "https://audreyfeldroy.github.io/cookiecutter-pypackage/"
-site_description = "Cookiecutter template for a Python package"
-repo_url = "https://github.com/audreyfeldroy/cookiecutter-pypackage"
-repo_name = "audreyfeldroy/cookiecutter-pypackage"
 
 nav = [
   { "Home" = "index.md" },

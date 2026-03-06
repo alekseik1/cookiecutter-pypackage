@@ -28,14 +28,14 @@ qa: format type-check
 
 # Run integration tests
 test-integration:
-    uv run pytest -n auto -ra -m "integration"
+    uv run pytest -ra -m "integration"
 
 test:
-    uv run pytest -n auto -ra -m "not integration"
+    uv run pytest -ra -m "not integration"
 
 # Run tests with coverage across all supported Python versions
 coverage:
-    uv run coverage run -m pytest -n auto -ra
+    uv run coverage run -m pytest -ra
     uv run coverage combine
     uv run coverage report
     uv run coverage html

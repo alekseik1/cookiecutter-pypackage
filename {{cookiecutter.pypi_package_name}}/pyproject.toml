@@ -37,7 +37,6 @@ lint = [
 test = [
     "pytest",
     "pytest-cov",
-    "pytest-xdist",
 ]
 typecheck = [
     "pyright",
@@ -105,7 +104,6 @@ exclude_also = [
 [tool.pytest.ini_options]
 markers = [
     "integration: tests that rely on external services like db, api",
-    "parallel: these and only these tests would be run in parallel by `-n auto`",
 ]
 strict = true
 

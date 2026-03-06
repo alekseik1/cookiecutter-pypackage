@@ -1,11 +1,11 @@
 import typing as tp
 from contextvars import ContextVar
 
-_ctx: ContextVar[dict[str, tp.Any]] = ContextVar("_ctx", default={})
+_ctx: ContextVar[dict[str, tp.Any] | None] = ContextVar("_ctx", default=None)
 
 
 def bind_context(**fields: tp.Any) -> None:
-    _ctx.set({**_ctx.get(), **fields})
+    _ctx.set({**(_ctx.get() or {}), **fields})
 
 
 def clear_context() -> None:
@@ -13,4 +13,4 @@ def clear_context() -> None:
 
 
 def get_context() -> dict[str, tp.Any]:
-    return _ctx.get({})
+    return _ctx.get() or {}

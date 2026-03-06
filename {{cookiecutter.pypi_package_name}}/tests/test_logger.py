@@ -1,5 +1,4 @@
 """Tests for the logger module — JSON output, uvicorn access/error, context propagation."""
-from __future__ import annotations
 
 import json
 import logging

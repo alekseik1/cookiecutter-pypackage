@@ -107,7 +107,7 @@ markers = [
     "integration: tests that rely on external services like db, api",
     "parallel: these and only these tests would be run in parallel by `-n auto`",
 ]
-addopts = "--strict-markers"
+strict = true
 
 
 [tool.uv]

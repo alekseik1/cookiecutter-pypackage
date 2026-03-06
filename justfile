@@ -35,10 +35,8 @@ tag:
     git push origin v{{VERSION}}
 
 lint:
-    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff check --fix --config pyproject.toml
-    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff format --config pyproject.toml
-    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff check --fix --config pyproject.toml
-    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff format --config pyproject.toml
+    find . -path ./.venv -prune -o -type f -name "*.py" -print | xargs grep -L {{ '{{' }} | xargs ruff check --fix --config pyproject.toml
+    find . -path ./.venv -prune -o -type f -name "*.py" -print | xargs grep -L {{ '{{' }} | xargs ruff format --config pyproject.toml
 
 # Run all the tests, but allow for arguments to be passed
 test *ARGS:

@@ -32,6 +32,7 @@ dev = [
 ]
 lint = [
     "ruff",
+    "pre-commit",
 ]
 test = [
     "pytest",
@@ -39,7 +40,7 @@ test = [
     "pytest-xdist",
 ]
 typecheck = [
-    "ty",
+    "pyright",
 ]
 docs = [
     "zensical",
@@ -55,10 +56,15 @@ homepage = "https://github.com/{{cookiecutter.__gh_slug}}"
 [project.scripts]
 {{cookiecutter.project_slug}} = "{{cookiecutter.project_slug}}.cli:app"
 
-[tool.ty]
-# All rules are enabled as "error" by default; no need to specify unless overriding.
-# Example override: relax a rule for the entire project (uncomment if needed).
-# rules.TY015 = "warn"  # For invalid-argument-type, warn instead of error.
+[tool.pyright]
+typeCheckingMode = "basic"
+
+reportMissingImports = true
+reportMissingTypeStubs = true
+useLibraryCodeForTypes = true
+
+venvPath = "."
+venv = ".venv"
 
 [tool.ruff]
 line-length = 120
@@ -72,6 +78,9 @@ select = [
     "B",   # flake8-bugbear
     "UP",  # pyupgrade
 ]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
 
 [tool.coverage.run]
 branch = true

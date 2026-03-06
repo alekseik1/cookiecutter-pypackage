@@ -10,24 +10,20 @@ alias d := docs-serve
 alias t := test
 alias tc := type-check
 
-# Type check the project with ty
+# Type check the project with pyright
 type-check:
-    uv run ty check .
-
-# Type check with concise output (one diagnostic per line)
-type-check-concise:
-    uv run ty check --output-format=concise .
+    uv run pyright .
 
 # Type check in watch mode (rechecks on file changes)
 type-check-watch:
-    uv run ty check --watch .
+    uv run pyright --watch .
 
 # Run all the formatting, linting, and testing commands
 qa:
     uv run ruff format .
     uv run ruff check . --fix
     uv run ruff check --select I --fix .
-    @just type-check-concise
+    @just type-check
     @just testall
 
 # Run all the tests for all the supported Python versions

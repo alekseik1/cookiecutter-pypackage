@@ -8,7 +8,6 @@ JUSTFILE_TARGETS = [
     "version",
     "build",
     "type-check",
-    "type-check-concise",
     "qa",
     "test",
     "docs-build",

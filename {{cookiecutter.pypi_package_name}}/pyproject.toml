@@ -47,15 +47,6 @@ docs = [
     "mkdocstrings-python",
 ]
 
-[project.urls]
-bugs = "https://github.com/{{cookiecutter.__gh_slug}}/issues"
-changelog = "https://github.com/{{cookiecutter.__gh_slug}}/releases"
-documentation = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}/"
-homepage = "https://github.com/{{cookiecutter.__gh_slug}}"
-
-[project.scripts]
-{{cookiecutter.project_slug}} = "{{cookiecutter.project_slug}}.cli:app"
-
 [tool.pyright]
 typeCheckingMode = "basic"
 

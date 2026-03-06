@@ -34,6 +34,12 @@ tag:
     git tag -a v{{VERSION}} -m "Creating version v{{VERSION}}"
     git push origin v{{VERSION}}
 
+lint:
+    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff check --fix --config pyproject.toml
+    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff format --config pyproject.toml
+    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff check --fix --config pyproject.toml
+    find \{\{cookiecutter.pypi_package_name\}\} -type f -name "*.py" | xargs grep -L {{ '{{' }} | xargs ruff format --config pyproject.toml
+
 # Run all the tests, but allow for arguments to be passed
 test *ARGS:
     @echo "Running with arg: {{ARGS}}"

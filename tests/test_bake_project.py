@@ -69,9 +69,7 @@ def test_bake_with_apostrophe_and_run_tests(cookies):
 
 def test_bake_with_quotes_in_description(cookies):
     """Ensure that double quotes in project_short_description produce valid TOML."""
-    result = cookies.bake(
-        extra_context={"project_short_description": 'A "quoted" description'}
-    )
+    result = cookies.bake(extra_context={"project_short_description": 'A "quoted" description'})
     assert result.project_path.is_dir()
     assert result.exit_code == 0
     content = (result.project_path / "pyproject.toml").read_text()

@@ -33,6 +33,8 @@ dependencies = [
     "alabaster>=1.0.0",
     "watchdog>=6.0.0",
     "basedpyright>=1.38.2",
+    "python-json-logger",
+    "orjson"
 ]
 
 
@@ -47,6 +49,7 @@ issues = "https://github.com/audreyfeldroy/cookiecutter-pypackage/issues"
 security = "https://github.com/audreyfeldroy/cookiecutter-pypackage/security/policy"
 
 [tool.ruff]
+line-length = 120
 exclude = [
     "*cookiecutter.pypi_package_name*"
     ]
@@ -60,10 +63,9 @@ select = [
     "B",   # flake8-bugbear
     "UP",  # pyupgrade
 ]
-ignore = [
-    "E501",  # line length (handled by ruff format for code)
-    "B008",  # function call in defaults (standard typer pattern)
-]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
 
 [tool.ty.src]
 exclude = [

@@ -32,10 +32,6 @@ def test_just_target(cookies, target):
     result = cookies.bake()
     assert result.exit_code == 0
 
-    proc = subprocess.run(
-        ["just", target],
-        cwd=str(result.project_path),
-        capture_output=True
-    )
+    proc = subprocess.run(["just", target], cwd=str(result.project_path), capture_output=True)
     # 0 - command ok, 5 - no tests collected
     assert proc.returncode in (0, 5)

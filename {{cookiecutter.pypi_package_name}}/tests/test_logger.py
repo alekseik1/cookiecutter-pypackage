@@ -180,8 +180,13 @@ def test_uvicorn_access_does_not_propagate():
 def test_uvicorn_access_non_standard_args_does_not_crash(capsys):
     setup_logging()
     record = logging.LogRecord(
-        name="uvicorn.access", level=logging.INFO, pathname="",
-        lineno=0, msg="some message", args=(), exc_info=None,
+        name="uvicorn.access",
+        level=logging.INFO,
+        pathname="",
+        lineno=0,
+        msg="some message",
+        args=(),
+        exc_info=None,
     )
     _emit("uvicorn.access", record)
     data = _capture_json(capsys)

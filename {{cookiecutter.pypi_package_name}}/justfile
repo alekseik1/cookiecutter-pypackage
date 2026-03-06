@@ -56,9 +56,7 @@ docs-build:
     uv run --group docs zensical build --clean
 
 # Build the project, useful for checking that packaging is correct
-build:
-    rm -rf build
-    rm -rf dist
+build: clean-build
     uv build
 
 VERSION := `uv version`

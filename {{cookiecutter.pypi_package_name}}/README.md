@@ -1,15 +1,11 @@
 # {{ cookiecutter.project_name }}
 
-![PyPI version](https://img.shields.io/pypi/v/{{ cookiecutter.pypi_package_name }}.svg)
-
 {{ cookiecutter.project_short_description }}
 
 * Created by **[{{ cookiecutter.full_name }}]({{ cookiecutter.author_website if cookiecutter.author_website else 'https://github.com/' + cookiecutter.github_username }})**
 {%- if cookiecutter.author_website %}
   * GitHub: https://github.com/{{ cookiecutter.github_username }}
 {%- endif %}
-  * PyPI: https://pypi.org/user/{{ cookiecutter.pypi_username }}/
-* PyPI package: https://pypi.org/project/{{ cookiecutter.pypi_package_name }}/
 * Free software: MIT License
 
 ## Features

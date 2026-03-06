@@ -39,17 +39,12 @@ test *ARGS:
     @echo "Running with arg: {{ARGS}}"
     uv run --python=3.13 pytest {{ARGS}}
 
-# Run all the tests, but on failure, drop into the debugger
-pdb *ARGS:
-    @echo "Running with arg: {{ARGS}}"
-    uv run --python=3.13 pytest --pdb --maxfail=10 {{ARGS}}
-
 # Run all the formatting, linting, type checking, and testing commands
 qa:
     uv run --python=3.13 ruff format .
     uv run --python=3.13 ruff check . --fix
     uv run --python=3.13 ruff check --select I --fix .
-    uv run --python=3.13 ty check .
+    uv run --python=3.13 pyright .
     uv run --python=3.13 pytest -n auto tests/
 
 # Run all the checks for CI
@@ -57,7 +52,7 @@ ci:
     uv run --python=3.13 ruff format --check .
     uv run --python=3.13 ruff check .
     uv run --python=3.13 ruff check --select I .
-    uv run --python=3.13 ty check .
+    uv run --python=3.13 pyright .
     uv run --python=3.13 pytest .
 
 # Run all the tests for all the supported Python versions
@@ -74,7 +69,6 @@ coverage:
 
 # Serve docs locally with live reload
 docs-serve:
-    -lsof -ti :8000 | xargs kill
     uv run --group docs zensical serve
 
 # Build docs

@@ -1,7 +1,7 @@
 import typing as tp
 from contextvars import ContextVar
 
-_ctx: ContextVar[dict[str, tp.Any]] = ContextVar("_ctx")
+_ctx: ContextVar[dict[str, tp.Any]] = ContextVar("_ctx", default={})
 
 
 def bind_context(**fields: tp.Any) -> None:

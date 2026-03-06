@@ -78,7 +78,6 @@ def setup_logging(level: str = "INFO", service: str | None = None) -> None:
             fmt="%(asctime)s %(levelname)s %(name)s %(message)s",
             rename_fields={"levelname": "level", "name": "logger", "asctime": "timestamp"},
             static_fields=static,
-            json_ensure_ascii=False,
         )
     )
     access_handler = make_handler(
@@ -86,7 +85,6 @@ def setup_logging(level: str = "INFO", service: str | None = None) -> None:
             fmt="%(asctime)s %(levelname)s %(name)s %(message)s",
             rename_fields={"levelname": "level", "name": "logger", "asctime": "timestamp"},
             static_fields=static,
-            json_ensure_ascii=False,
         )
     )
 

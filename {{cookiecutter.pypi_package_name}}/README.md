@@ -8,21 +8,14 @@
 {%- endif %}
 * Free software: MIT License
 
-## Features
-
-* TODO
-
 ## Documentation
 
-Documentation is built with [Zensical](https://zensical.org/) and deployed to GitHub Pages.
+Documentation is built with [Zensical](https://zensical.org/).
 
-* **Live site:** https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}/
 * **Preview locally:** `just docs-serve` (serves at http://localhost:8000)
 * **Build:** `just docs-build`
 
 API documentation is auto-generated from docstrings using [mkdocstrings](https://mkdocstrings.github.io/).
-
-Docs deploy automatically on push to `main` via GitHub Actions. To enable this, go to your repo's Settings > Pages and set the source to **GitHub Actions**.
 
 ## Development
 
@@ -39,20 +32,10 @@ uv tool install --editable .
 
 This installs the CLI globally but with live updates - any changes you make to the source code are immediately available when you run `{{ cookiecutter.project_slug }}`.
 
-Run tests:
+Run tests: `just testall`.
 
-```bash
-uv run pytest
-```
-
-Run quality checks (format, lint, type check, test):
-
-```bash
-just qa
-```
+Run quality checks (format, lint, type check, test): `just qa`.
 
 ## Author
 
 {{ cookiecutter.project_name }} was created in {% now 'local', '%Y' %} by {{ cookiecutter.full_name }}.
-
-Built with [Cookiecutter](https://github.com/cookiecutter/cookiecutter) and the [audreyfeldroy/cookiecutter-pypackage](https://github.com/audreyfeldroy/cookiecutter-pypackage) project template.

@@ -26,12 +26,15 @@ format:
 qa: format type-check
     @:
 
-# Run all the tests for all the supported Python versions
-testall:
-    uv run pytest
+# Run integration tests
+test-integration:
+    @just test-cmd -n auto -ra -m "integration"
+
+test:
+    @just test-cmd -n auto -ra -m "not integration"
 
 # Run all the tests, but allow for arguments to be passed
-test *ARGS:
+test-cmd *ARGS:
     @echo "Running with arg: {{ '{{ARGS}}' }}"
     uv run pytest {{ '{{ARGS}}' }}
 

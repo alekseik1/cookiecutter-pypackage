@@ -10,6 +10,9 @@ JUSTFILE_TARGETS = [
     "type-check",
     "qa",
     "test",
+    "test-cmd",
+    "test-integration",
+    "format",
     "docs-build",
     "clean-build",
     "clean-pyc",
@@ -32,5 +35,7 @@ def test_just_target(cookies, target):
     proc = subprocess.run(
         ["just", target],
         cwd=str(result.project_path),
+        capture_output=True
     )
-    assert proc.returncode == 0
+    # 0 - command ok, 5 - no tests collected
+    assert proc.returncode in (0, 5)

@@ -50,7 +50,7 @@ qa:
     uv run --python=3.13 ruff check . --fix
     uv run --python=3.13 ruff check --select I --fix .
     uv run --python=3.13 ty check .
-    uv run --python=3.13 pytest .
+    uv run --python=3.13 pytest -n auto tests/
 
 # Run all the checks for CI
 ci:

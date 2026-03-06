@@ -98,6 +98,7 @@ test = [
     "pytest-cookies",
     "ty",
     "ipdb",
+    "pytest-xdist>=3.8.0",
 ]
 tools = [
     "rust-just>=1.42.4",

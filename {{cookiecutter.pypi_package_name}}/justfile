@@ -39,11 +39,6 @@ test *ARGS:
     @echo "Running with arg: {{ '{{ARGS}}' }}"
     uv run pytest {{ '{{ARGS}}' }}
 
-# Run all the tests, but on failure, drop into the debugger
-pdb *ARGS:
-    @echo "Running with arg: {{ '{{ARGS}}' }}"
-    uv run pytest --pdb --maxfail=10 {{ '{{ARGS}}' }}
-
 # Run tests with coverage across all supported Python versions
 coverage:
     uv run coverage run -m pytest
@@ -103,7 +98,3 @@ clean-test:
 	rm -f .coverage.*
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
-
-# Publish to PyPI (manual alternative to GitHub Actions)
-publish: build
-    uv publish

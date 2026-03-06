@@ -176,3 +176,14 @@ def test_uvicorn_access_includes_request_id_and_trace_id(capsys):
 def test_uvicorn_access_does_not_propagate():
     setup_logging()
     assert not logging.getLogger("uvicorn.access").propagate
+
+
+def test_uvicorn_access_non_standard_args_does_not_crash(capsys):
+    setup_logging()
+    record = logging.LogRecord(
+        name="uvicorn.access", level=logging.INFO, pathname="",
+        lineno=0, msg="some message", args=(), exc_info=None,
+    )
+    _emit("uvicorn.access", record)
+    data = _capture_json(capsys)
+    assert "http" not in data  # no structured http block

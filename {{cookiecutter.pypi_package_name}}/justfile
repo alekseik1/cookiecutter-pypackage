@@ -28,7 +28,7 @@ qa:
     uv run ruff check . --fix
     uv run ruff check --select I --fix .
     uv run ty check --output-format=concise .
-    uv run pytest .
+    @just testall
 
 # Run all the tests for all the supported Python versions
 testall:

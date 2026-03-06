@@ -32,6 +32,7 @@ dependencies = [
     "typer>=0.16.0",
     "alabaster>=1.0.0",
     "watchdog>=6.0.0",
+    "basedpyright>=1.38.2",
 ]
 
 
@@ -96,7 +97,7 @@ test = [
     "coverage",
     "pytest",
     "pytest-cookies",
-    "ty",
+    "pyright",
     "ipdb",
     "pytest-xdist>=3.8.0",
 ]
@@ -106,6 +107,16 @@ tools = [
 docs = [
     "zensical",
 ]
+
+[tool.pyright]
+typeCheckingMode = "basic"
+
+reportMissingImports = true
+reportMissingTypeStubs = true
+useLibraryCodeForTypes = true
+
+venvPath = "."
+venv = ".venv"
 
 [tool.hatch.build.targets.sdist]
 include = [

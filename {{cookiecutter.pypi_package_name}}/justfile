@@ -12,19 +12,19 @@ alias tc := type-check
 
 # Type check the project with pyright
 type-check:
-    uv run pyright .
+    uv run pyright --project pyproject.toml .
 
 # Type check in watch mode (rechecks on file changes)
 type-check-watch:
-    uv run pyright --watch .
+    uv run pyright --project pyproject.toml --watch .
 
-# Run all the formatting, linting, and testing commands
-qa:
+format:
     uv run ruff format .
     uv run ruff check . --fix
-    uv run ruff check --select I --fix .
-    @just type-check
-    @just testall
+
+# Run all the formatting, linting
+qa: format type-check
+    @:
 
 # Run all the tests for all the supported Python versions
 testall:

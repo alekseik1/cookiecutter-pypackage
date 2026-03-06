@@ -11,7 +11,6 @@ JUSTFILE_TARGETS = [
     "type-check-concise",
     "qa",
     "test",
-    "pdb",
     "docs-build",
     "clean-build",
     "clean-pyc",

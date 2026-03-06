@@ -26,6 +26,7 @@ requires-python = ">= 3.12"
 
 [dependency-groups]
 dev = [
+    "python-semantic-release",
     { include-group = "lint" },
     { include-group = "test" },
     { include-group = "typecheck" },
@@ -111,3 +112,7 @@ strict = true
 [tool.uv]
 package = true
 default-groups = ["dev"]
+
+[tool.semantic_release]
+build_command = "just build"
+version_toml = ["pyproject.toml:tool.poetry.version"]
